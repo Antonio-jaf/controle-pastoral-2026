@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Pastoral</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✝ CONTROLE PASTORAL</h1>
+            <p>Paróquia Matriz Santa Bárbara — Gestão Integrada</p>
+        </div>
+
+        <!-- Cards de estatísticas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalMembros">0</div>
+                <div class="stat-label">Total de Membros</div>
+            </div>
+            <div class="stat-card ativo">
+                <div class="stat-value" id="totalAtivos">0</div>
+                <div class="stat-label">Ativos</div>
+            </div>
+            <div class="stat-card inativo">
+                <div class="stat-value" id="totalInativos">0</div>
+                <div class="stat-label">Inativos</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- CADASTRO -->
+            <div class="card">
+                <h2>📋 Cadastro de Frequentador</h2>
+                <input type="hidden" id="editandoId">
+                <label>Nome completo *</label>
+                <input type="text" id="nome" placeholder="Ex: Maria Aparecida da Silva">
+                <label>E-mail</label>
+                <input type="email" id="email" placeholder="contato@exemplo.com">
+                <label>Telefone</label>
+                <input type="text" id="telefone" placeholder="(11) 91234-5678">
+                <label>Pastoral</label>
+                <select id="pastoral">
+                    <option value="Liturgia">Liturgia</option>
+                    <option value="Catequese">Catequese</option>
+                    <option value="Música">Música</option>
+                    <option value="Caridade">Caridade</option>
+                    <option value="Dízimo">Dízimo</option>
+                    <option value="Jovens">Pastoral da Juventude</option>
+                    <option value="Família">Pastoral Familiar</option>
+                    <option value="Batismo">Pastoral do Batismo</option>
+                </select>
+                <label>Status</label>
+                <select id="status">
+                    <option value="ativo">✅ ATIVO</option>
+                    <option value="inativo">⛔ INATIVO</option>
+                </select>
+                <button id="btnSalvar">➕ Salvar Cadastro</button>
+                <button id="btnCancelar" style="display:none;">❌ Cancelar Edição</button>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="card">
+                <h2>🔍 Filtros</h2>
+                <label>Status:</label>
+                <select id="filtroStatus">
+                    <option value="todos">Todos</option>
+                    <option value="ativo">Ativos</option>
+                    <option value="inativo">Inativos</option>
+                </select>
+                <label>Pastoral:</label>
+                <select id="filtroPastoral">
+                    <option value="todas">Todas</option>
+                    <option value="Liturgia">Liturgia</option>
+                    <option value="Catequese">Catequese</option>
+                    <option value="Música">Música</option>
+                    <option value="Caridade">Caridade</option>
+                    <option value="Dízimo">Dízimo</option>
+                    <option value="Jovens">Pastoral da Juventude</option>
+                    <option value="Família">Pastoral Familiar</option>
+                    <option value="Batismo">Pastoral do Batismo</option>
+                </select>
+                <button id="btnFiltrar">🔎 Aplicar Filtros</button>
+                <button id="btnLimparFiltros">♻️ Limpar Filtros</button>
+            </div>
+        </div>
+
+        <!-- LISTAGEM -->
+        <div class="card">
+            <h2>📌 Lista de Frequentadores</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Nome</th><th>Contato</th><th>Pastoral</th><th>Status</th><th>Ações</th></tr>
+                    </thead>
+                    <tbody id="listaMembros">
+                        <tr><td colspan="6" style="text-align:center;">Carregando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <footer>
+            Sistema desenvolvido com Node.js, Express e SQLite | Controle de versão com Git
+        </footer>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
